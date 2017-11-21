@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MaterialesdbModelStoreContainer" CdmEntityContainer="MaterialesdbEntities">
+    <EntitySetMapping Name="AceroGHerramienta">
+      <EntityTypeMapping TypeName="MaterialesdbModel.AceroGHerramienta">
+        <MappingFragment StoreEntitySet="AceroGHerramienta">
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Acabado" ColumnName="Acabado" />
+          <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AceroGMaquinaria">
+      <EntityTypeMapping TypeName="MaterialesdbModel.AceroGMaquinaria">
+        <MappingFragment StoreEntitySet="AceroGMaquinaria">
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Acabado" ColumnName="Acabado" />
+          <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AceroInoxidable">
+      <EntityTypeMapping TypeName="MaterialesdbModel.AceroInoxidable">
+        <MappingFragment StoreEntitySet="AceroInoxidable">
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+          <ScalarProperty Name="Acabado" ColumnName="Acabado" />
+          <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="MaterialesdbModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="idAceroGH" ColumnName="idAceroGH" />
+          <ScalarProperty Name="idAceroGM" ColumnName="idAceroGM" />
+          <ScalarProperty Name="idAceroInox" ColumnName="idAceroInox" />
+          <ScalarProperty Name="idMetal" ColumnName="idMetal" />
+          <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metales">
+      <EntityTypeMapping TypeName="MaterialesdbModel.Metales">
+        <MappingFragment StoreEntitySet="Metales">
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="Mineral" ColumnName="Mineral" />
+          <ScalarProperty Name="MateriaPrima" ColumnName="MateriaPrima" />
+          <ScalarProperty Name="SemiFabricado" ColumnName="SemiFabricado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

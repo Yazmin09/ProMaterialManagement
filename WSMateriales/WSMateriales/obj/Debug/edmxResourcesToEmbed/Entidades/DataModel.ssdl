@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataMasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AceroGHerramienta">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calidad" Type="text" />
+    <Property Name="Perfil" Type="text" />
+    <Property Name="Acabado" Type="text" />
+    <Property Name="Medidas" Type="text" />
+    <Property Name="Tipo" Type="text" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="AceroGMaquinaria">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calidad" Type="text" />
+    <Property Name="Perfil" Type="text" />
+    <Property Name="Acabado" Type="text" />
+    <Property Name="Medidas" Type="text" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="AceroInoxidable">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calidad" Type="text" />
+    <Property Name="Perfil" Type="text" />
+    <Property Name="Acabado" Type="text" />
+    <Property Name="Espesor" Type="text" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAceroGH" Type="int" />
+    <Property Name="idAceroGM" Type="int" />
+    <Property Name="idAceroInox" Type="int" />
+    <Property Name="idMetal" Type="int" />
+    <Property Name="Calidad" Type="text" />
+  </EntityType>
+  <EntityType Name="Metales">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mineral" Type="text" />
+    <Property Name="MateriaPrima" Type="text" />
+    <Property Name="SemiFabricado" Type="text" />
+    <Property Name="Estado" Type="text" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <Association Name="FK_Material_idAceroGH">
+    <End Role="AceroGHerramienta" Type="Self.AceroGHerramienta" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AceroGHerramienta">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idAceroGH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_idAceroGM">
+    <End Role="AceroGMaquinaria" Type="Self.AceroGMaquinaria" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AceroGMaquinaria">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idAceroGM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_idAceroInox">
+    <End Role="AceroInoxidable" Type="Self.AceroInoxidable" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AceroInoxidable">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idAceroInox" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_idMetal">
+    <End Role="Metales" Type="Self.Metales" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metales">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idMetal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataMasterModelStoreContainer">
+    <EntitySet Name="AceroGHerramienta" EntityType="Self.AceroGHerramienta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AceroGMaquinaria" EntityType="Self.AceroGMaquinaria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AceroInoxidable" EntityType="Self.AceroInoxidable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metales" EntityType="Self.Metales" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Material_idAceroGH" Association="Self.FK_Material_idAceroGH">
+      <End Role="AceroGHerramienta" EntitySet="AceroGHerramienta" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_idAceroGM" Association="Self.FK_Material_idAceroGM">
+      <End Role="AceroGMaquinaria" EntitySet="AceroGMaquinaria" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_idAceroInox" Association="Self.FK_Material_idAceroInox">
+      <End Role="AceroInoxidable" EntitySet="AceroInoxidable" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_idMetal" Association="Self.FK_Material_idMetal">
+      <End Role="Metales" EntitySet="Metales" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

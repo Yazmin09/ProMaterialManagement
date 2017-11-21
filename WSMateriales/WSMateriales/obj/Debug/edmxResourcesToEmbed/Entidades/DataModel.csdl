@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataMasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AceroGHerramienta">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Acabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Medidas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_idAceroGH" FromRole="AceroGHerramienta" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="AceroGMaquinaria">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Acabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Medidas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_idAceroGM" FromRole="AceroGMaquinaria" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="AceroInoxidable">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Acabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Espesor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_idAceroInox" FromRole="AceroInoxidable" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAceroGH" Type="Int32" />
+    <Property Name="idAceroGM" Type="Int32" />
+    <Property Name="idAceroInox" Type="Int32" />
+    <Property Name="idMetal" Type="Int32" />
+    <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AceroGHerramienta" Relationship="Self.FK_Material_idAceroGH" FromRole="Material" ToRole="AceroGHerramienta" />
+    <NavigationProperty Name="AceroGMaquinaria" Relationship="Self.FK_Material_idAceroGM" FromRole="Material" ToRole="AceroGMaquinaria" />
+    <NavigationProperty Name="AceroInoxidable" Relationship="Self.FK_Material_idAceroInox" FromRole="Material" ToRole="AceroInoxidable" />
+    <NavigationProperty Name="Metales" Relationship="Self.FK_Material_idMetal" FromRole="Material" ToRole="Metales" />
+  </EntityType>
+  <EntityType Name="Metales">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mineral" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MateriaPrima" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SemiFabricado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_idMetal" FromRole="Metales" ToRole="Material" />
+  </EntityType>
+  <Association Name="FK_Material_idAceroGH">
+    <End Role="AceroGHerramienta" Type="Self.AceroGHerramienta" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AceroGHerramienta">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idAceroGH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_idAceroGM">
+    <End Role="AceroGMaquinaria" Type="Self.AceroGMaquinaria" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AceroGMaquinaria">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idAceroGM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_idAceroInox">
+    <End Role="AceroInoxidable" Type="Self.AceroInoxidable" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AceroInoxidable">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idAceroInox" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_idMetal">
+    <End Role="Metales" Type="Self.Metales" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metales">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="idMetal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataMasterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AceroGHerramienta" EntityType="Self.AceroGHerramienta" />
+    <EntitySet Name="AceroGMaquinaria" EntityType="Self.AceroGMaquinaria" />
+    <EntitySet Name="AceroInoxidable" EntityType="Self.AceroInoxidable" />
+    <EntitySet Name="Material" EntityType="Self.Material" />
+    <EntitySet Name="Metales" EntityType="Self.Metales" />
+    <AssociationSet Name="FK_Material_idAceroGH" Association="Self.FK_Material_idAceroGH">
+      <End Role="AceroGHerramienta" EntitySet="AceroGHerramienta" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_idAceroGM" Association="Self.FK_Material_idAceroGM">
+      <End Role="AceroGMaquinaria" EntitySet="AceroGMaquinaria" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_idAceroInox" Association="Self.FK_Material_idAceroInox">
+      <End Role="AceroInoxidable" EntitySet="AceroInoxidable" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_idMetal" Association="Self.FK_Material_idMetal">
+      <End Role="Metales" EntitySet="Metales" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

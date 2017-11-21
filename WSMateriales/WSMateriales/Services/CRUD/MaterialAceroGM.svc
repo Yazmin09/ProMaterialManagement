@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WSMateriales.Services.MaterialAceroGM" CodeBehind="MaterialAceroGM.svc.cs" %>

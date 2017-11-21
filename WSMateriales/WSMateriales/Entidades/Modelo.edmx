@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataMasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AceroGHerramienta">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calidad" Type="text" />
+          <Property Name="Perfil" Type="text" />
+          <Property Name="Acabado" Type="text" />
+          <Property Name="Medidas" Type="text" />
+          <Property Name="Tipo" Type="text" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="AceroGMaquinaria">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calidad" Type="text" />
+          <Property Name="Perfil" Type="text" />
+          <Property Name="Acabado" Type="text" />
+          <Property Name="Medidas" Type="text" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="AceroInoxidable">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calidad" Type="text" />
+          <Property Name="Perfil" Type="text" />
+          <Property Name="Acabado" Type="text" />
+          <Property Name="Espesor" Type="text" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="Metales">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mineral" Type="text" />
+          <Property Name="MateriaPrima" Type="text" />
+          <Property Name="SemiFabricado" Type="text" />
+          <Property Name="Estado" Type="text" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DataMasterModelStoreContainer">
+          <EntitySet Name="AceroGHerramienta" EntityType="Self.AceroGHerramienta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AceroGMaquinaria" EntityType="Self.AceroGMaquinaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AceroInoxidable" EntityType="Self.AceroInoxidable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Metales" EntityType="Self.Metales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataMasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AceroGHerramienta">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Acabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Medidas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AceroGMaquinaria">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Acabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Medidas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AceroInoxidable">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calidad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Acabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Espesor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Metales">
+          <Key>
+            <PropertyRef Name="idMaterial" />
+          </Key>
+          <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mineral" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MateriaPrima" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SemiFabricado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DataMasterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AceroGHerramienta" EntityType="Self.AceroGHerramienta" />
+          <EntitySet Name="AceroGMaquinaria" EntityType="Self.AceroGMaquinaria" />
+          <EntitySet Name="AceroInoxidable" EntityType="Self.AceroInoxidable" />
+          <EntitySet Name="Metales" EntityType="Self.Metales" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataMasterModelStoreContainer" CdmEntityContainer="DataMasterEntities">
+          <EntitySetMapping Name="AceroGHerramienta">
+            <EntityTypeMapping TypeName="DataMasterModel.AceroGHerramienta">
+              <MappingFragment StoreEntitySet="AceroGHerramienta">
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Acabado" ColumnName="Acabado" />
+                <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AceroGMaquinaria">
+            <EntityTypeMapping TypeName="DataMasterModel.AceroGMaquinaria">
+              <MappingFragment StoreEntitySet="AceroGMaquinaria">
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Acabado" ColumnName="Acabado" />
+                <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AceroInoxidable">
+            <EntityTypeMapping TypeName="DataMasterModel.AceroInoxidable">
+              <MappingFragment StoreEntitySet="AceroInoxidable">
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="Calidad" ColumnName="Calidad" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Acabado" ColumnName="Acabado" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Metales">
+            <EntityTypeMapping TypeName="DataMasterModel.Metales">
+              <MappingFragment StoreEntitySet="Metales">
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="Mineral" ColumnName="Mineral" />
+                <ScalarProperty Name="MateriaPrima" ColumnName="MateriaPrima" />
+                <ScalarProperty Name="SemiFabricado" ColumnName="SemiFabricado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DataMasterModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
