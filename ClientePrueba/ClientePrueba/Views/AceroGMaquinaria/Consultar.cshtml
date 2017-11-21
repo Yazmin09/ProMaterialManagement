@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ClientePrueba.MaterialAceroGM.AceroGMaquinaria>
+
+@{
+    ViewBag.Title = "Consultar";
+}
+
+<h2>Consultar</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            idMaterial
+        </th>
+        <th>
+            Calidad
+        </th>
+        <th>
+            Perfil
+        </th>
+        <th>
+            Acabado
+        </th>
+        <th>
+            Medidas
+        </th>
+        <th>
+           Cantidad
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.acerogm) {
+    <tr>
+        <td>
+            @item.idMaterial
+        </td>
+        <td>
+            @item.Calidad
+        </td>
+        <td>
+            @item.Perfil
+        </td>
+        <td>
+            @item.Acabado
+        </td>
+        <td>
+            @item.Medidas
+        </td>
+        <th>
+            @item.Cantidad
+        </th>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMaterial  }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMaterial }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMaterial })
+        </td>
+    </tr>
+}
+
+</table>
